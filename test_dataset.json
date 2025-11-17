@@ -1,0 +1,84 @@
+{
+  "test_questions": [
+    {
+      "id": 1,
+      "question": "What is the real remedy for caste system according to Document 1?",
+      "ground_truth": "The real remedy is to destroy the belief in the sanctity of the shastras.",
+      "source_documents": ["speech1.txt"],
+      "question_type": "factual",
+      "answerable": true
+    },
+    {
+      "id": 2,
+      "question": "What does Ambedkar say about the Buddha's view on rituals in Document 2?",
+      "ground_truth": "The Buddha was against ritualism, condemned sacrifices, rejected Vedic authority, denied prayer efficacy, and discarded gods.",
+      "source_documents": ["speech2.txt"],
+      "question_type": "factual",
+      "answerable": true
+    },
+    {
+      "id": 3,
+      "question": "What two types of constitutional remedies does Ambedkar mention in Document 3?",
+      "ground_truth": "Fundamental rights which are justiciable, and directive principles which are not justiciable.",
+      "source_documents": ["speech3.txt"],
+      "question_type": "factual",
+      "answerable": true
+    },
+    {
+      "id": 4,
+      "question": "What personal experiences of untouchability does Ambedkar describe in Document 4?",
+      "ground_truth": "Not allowed to drink from public wells, not allowed to enter temples, forced to live outside villages.",
+      "source_documents": ["speech4.txt"],
+      "question_type": "factual",
+      "answerable": true
+    },
+    {
+      "id": 5,
+      "question": "Why does Ambedkar believe Pakistan's creation was inevitable in Document 5?",
+      "ground_truth": "Because Hindus and Muslims are two separate nations with different religions, cultures, and historical backgrounds who cannot live under one domination.",
+      "source_documents": ["speech5.txt"],
+      "question_type": "factual",
+      "answerable": true
+    },
+    {
+      "id": 6,
+      "question": "Who does Ambedkar call 'broken men' in Document 6 and why?",
+      "ground_truth": "The untouchables, because they were original inhabitants defeated and subjugated by invading Aryans.",
+      "source_documents": ["speech6.txt"],
+      "question_type": "factual",
+      "answerable": true
+    },
+    {
+      "id": 7,
+      "question": "What is Ambedkar's concept of ideal society?",
+      "ground_truth": "Based on liberty, equality, and fraternity, with both political and social democracy.",
+      "source_documents": ["speech1.txt", "speech3.txt"],
+      "question_type": "conceptual",
+      "answerable": true
+    },
+    {
+      "id": 8,
+      "question": "What is the Dhamma according to Document 2?",
+      "ground_truth": "To avoid evil, to do good, and to purify the mind.",
+      "source_documents": ["speech2.txt"],
+      "question_type": "factual",
+      "answerable": true
+    },
+    {
+      "id": 9,
+      "question": "What analogy does Ambedkar use for social reform in Document 1?",
+      "ground_truth": "Like a gardener pruning leaves and branches without attacking the roots.",
+      "source_documents": ["speech1.txt"],
+      "question_type": "factual",
+      "answerable": true
+    },
+    {
+      "id": 10,
+      "question": "What was Ambedkar's favorite food?",
+      "ground_truth": "This information is not available in the provided documents.",
+      "source_documents": [],
+      "question_type": "unanswerable",
+      "answerable": false
+    }
+  ]
+}
