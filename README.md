@@ -358,7 +358,7 @@ MIT License - Copyright (c) 2025 Santhos Arun
 
 ## 🙏 Acknowledgments
 
-- **Kalpit Pvt Ltd, UK** - Assignment provider
+
 - **Dr. B.R. Ambedkar** - Speech content
 - **LangChain, ChromaDB, Ollama** - Technology stack
 - **HuggingFace, RAGAS** - Embeddings & evaluation
@@ -367,12 +367,12 @@ MIT License - Copyright (c) 2025 Santhos Arun
 
 ## 👤 Author
 
-**Santhos Arun**
+**Santhosh Arun**
 
-- GitHub: [@santhosharun18](https://github.com/santhosharun18)
-- Email: santhosharun.official@gmail.com
-- LinkedIn: [Santhos Arun](https://linkedin.com/in/santhosharun)
-- Portfolio: [santhosharun.com](https://santhosharun.com)
+- GitHub: https://github.com/santhosharun18
+- Email: santhosharun31@gmail.com
+- LinkedIn: https://www.linkedin.com/in/santhosh-d-2a6ba3221/
+- Portfolio: https://santhosharun18.github.io/my-portfolio/
 
 ---
 
