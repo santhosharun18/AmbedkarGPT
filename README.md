@@ -181,7 +181,7 @@ constraints of tradition and caste...
 python evaluation.py
 ```
 
-**Duration:** 60-90 minutes (tests 3 strategies × 25 questions)
+**Duration:** 30 minutes (tests 3 strategies × 25 questions)
 
 ### Generate Report
 
@@ -352,7 +352,7 @@ nltk.download('punkt')
 
 ## 📄 License
 
-MIT License - Copyright (c) 2025 Santhos Arun
+MIT License - Copyright (c) 2025 Santhosh Arun
 
 ---
 
