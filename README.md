@@ -1,247 +1,396 @@
-# AmbedkarGPT - Enhanced Multi-Document RAG Q&A System
+# 🚀 AmbedkarGPT - Advanced RAG System with Comprehensive Evaluation
 
-A sophisticated command-line Question & Answer system that demonstrates advanced **Retrieval Augmented Generation (RAG)** capabilities across multiple documents. Built using LangChain, ChromaDB, Ollama (Mistral 7B), and HuggingFace embeddings.
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![LangChain](https://img.shields.io/badge/LangChain-0.1.0-green.svg)](https://github.com/langchain-ai/langchain)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🎯 Project Highlights
+> An enterprise-grade Retrieval Augmented Generation (RAG) system with multi-document support and comprehensive evaluation framework, developed as part of Kalpit Pvt Ltd AI Intern hiring assessment.
 
-### Advanced Features
-- ✅ **Multi-Document Corpus**: Processes 6 different speeches by Dr. B.R. Ambedkar
-- ✅ **Cross-Document Retrieval**: Synthesizes answers from multiple sources
-- ✅ **Source Attribution**: Tracks which documents contributed to each answer
-- ✅ **Scalable Architecture**: Easily expandable to handle more documents
-- ✅ **Chunk Distribution Analytics**: Shows how documents are split and stored
+---
 
-### Technical Excellence
-- **26 chunks** created from 6 documents (4,890+ characters)
-- **Intelligent chunking** with RecursiveCharacterTextSplitter
-- **Metadata tracking** for source document attribution
-- **Top-4 retrieval** for comprehensive context
-- **Production-ready** error handling and validation
+## 📋 Table of Contents
 
-## 📚 Document Corpus
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Architecture](#architecture)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Evaluation Results](#evaluation-results)
+- [Project Structure](#project-structure)
+- [Technical Deep Dive](#technical-deep-dive)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
-The system includes 6 key speeches by Dr. B.R. Ambedkar:
+---
 
-1. **speech1.txt** - "Annihilation of Caste" (6 chunks)
-2. **speech2.txt** - "The Buddha and His Dhamma" (4 chunks)
-3. **speech3.txt** - "States and Minorities" (4 chunks)
-4. **speech4.txt** - "Waiting for a Visa" (4 chunks)
-5. **speech5.txt** - "Pakistan or the Partition of India" (4 chunks)
-6. **speech6.txt** - "The Untouchables" (4 chunks)
+## 🎯 Overview
 
-## 🛠️ Technical Stack
+AmbedkarGPT is a production-ready RAG system that processes and answers questions from **6 speeches by Dr. B.R. Ambedkar**, featuring:
 
-- **Python**: 3.8+
-- **LangChain**: RAG pipeline orchestration with multi-document support
-- **ChromaDB**: Local vector database with persistence
-- **Ollama**: Local LLM inference (Mistral 7B)
-- **HuggingFace**: sentence-transformers/all-MiniLM-L6-v2 embeddings
+### Phase 1: Functional RAG Prototype ✅
+- **Multi-document Q&A system** processing 6 historical speeches
+- **Real-time semantic search** using ChromaDB vector store
+- **Local LLM inference** with Ollama (Mistral 7B)
+- **Source attribution** showing which documents contributed to answers
+- **Interactive command-line interface** for exploratory research
 
-## 📋 Prerequisites
+### Phase 2: Comprehensive Evaluation Framework ✅
+- **8 evaluation metrics** across 3 categories (Retrieval, Answer Quality, Semantic)
+- **3 chunking strategies** tested (Small, Medium, Large)
+- **25 test questions** with ground truth answers
+- **Automated reporting** with statistical analysis
+- **Performance comparison** and optimization recommendations
 
-- Python 3.8 or higher
-- Ollama installed on your system
-- At least 8GB RAM (for Mistral 7B model)
-- Internet connection (for initial model downloads)
+---
 
-## 🚀 Installation & Setup
+## ✨ Key Features
 
-### Step 1: Install Ollama
+### 🔍 Advanced RAG Capabilities
 
-**Windows:**
-Download and install from [ollama.com](https://ollama.com)
+| Feature | Description |
+|---------|-------------|
+| **Multi-Document Retrieval** | Cross-document search and synthesis from 6 speeches |
+| **Semantic Search** | Vector similarity using sentence-transformers embeddings |
+| **Context-Aware Answers** | LLM-generated responses grounded in retrieved context |
+| **Source Tracking** | Shows which documents contributed to each answer |
+| **Chunk Optimization** | Tests multiple chunking strategies for optimal performance |
 
-**Linux/Mac:**
+### 📊 Comprehensive Evaluation
+
+| Metric Category | Metrics Implemented |
+|----------------|---------------------|
+| **Retrieval** | Hit Rate, Mean Reciprocal Rank (MRR), Precision@K |
+| **Answer Quality** | Answer Relevance, Faithfulness, ROUGE-L |
+| **Semantic** | Cosine Similarity, BLEU Score |
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         User Interface                           │
+│                    (Command-Line Interface)                      │
+└───────────────────────────────┬─────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      Question Processing                         │
+│                    (Query Encoding Layer)                        │
+└───────────────────────────────┬─────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     Vector Retrieval                             │
+│         ChromaDB + HuggingFace Embeddings (384-dim)             │
+│              Retrieves Top-K Relevant Chunks                     │
+└───────────────────────────────┬─────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    LLM Generation                                │
+│            Ollama (Mistral 7B) - Local Inference                │
+│              Generates Grounded Answers                          │
+└───────────────────────────────┬─────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    Response Delivery                             │
+│        Answer + Source Attribution + Confidence                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🛠️ Installation
+
+### Prerequisites
+
+- **Python**: 3.8 or higher
+- **Ollama**: Local LLM runtime
+- **RAM**: Minimum 8GB (16GB recommended)
+- **Disk Space**: 5GB free space
+
+### Quick Start
+
+**1. Install Ollama**
+
+Windows: Download from [ollama.com](https://ollama.com/download/windows)
+
+Linux/MacOS:
+```bash
 curl -fsSL https://ollama.ai/install.sh | sh
+```
 
-
-
-### Step 2: Pull Mistral 7B Model
-
+**2. Pull Mistral Model**
+```bash
 ollama pull mistral
+ollama run mistral "Test"  # Verify
+```
 
+**3. Clone Repository**
+```bash
+git clone https://github.com/santhosharun18/AmbedkarGPT.git
+cd AmbedkarGPT
+```
 
-
-Verify installation:
-ollama run mistral "Hello"
-
-
-### Step 3: Clone Repository
-
-git clone https://github.com/[your-username]/AmbedkarGPT-Intern-Task.git
-cd AmbedkarGPT-Intern-Task
-
-
-### Step 4: Create Virtual Environment
-
+**4. Setup Environment**
+```bash
+# Windows
 python -m venv venv
-
-Windows
 venv\Scripts\activate
 
-Linux/Mac
+# Linux/Mac
+python3 -m venv venv
 source venv/bin/activate
+```
 
-
-
-### Step 5: Install Dependencies
-
+**5. Install Dependencies**
+```bash
 pip install -r requirements.txt
+python -c "import nltk; nltk.download('punkt')"
+```
 
-
+---
 
 ## 💻 Usage
 
-### Running the Application
+### Phase 1: Interactive Q&A System
 
+```bash
 python main.py
+```
 
-
-### Example Multi-Document Interaction
-
+**Example:**
+```
 ❓ Your Question: What is Ambedkar's concept of ideal society?
 
 💡 Answer:
-Ambedkar's concept of an ideal society is one based on liberty,
-equality, and fraternity. He envisioned a society free from the
-constraints of tradition and caste, where individuals are equal
-and have fraternal relationships with each other.
-📚 Retrieved from: speech1.txt, speech2.txt, speech3.txt
-(4 relevant chunks)
+----------------------------------------------------------------------
+Ambedkar's concept of an ideal society is one based on liberty, 
+equality, and fraternity. He envisioned a society free from the 
+constraints of tradition and caste...
+----------------------------------------------------------------------
 
-text
+📚 Retrieved from: speech1.txt, speech3.txt (4 chunks)
+```
 
-### Sample Questions
+### Phase 2: Run Evaluation
 
-**Single Document Questions:**
-- "What is the real remedy for caste system?"
-- "What does Ambedkar say about the Buddha's view on rituals?"
-- "What personal experiences of untouchability does Ambedkar describe?"
+```bash
+python evaluation.py
+```
 
-**Cross-Document Questions:**
-- "What are the common themes across Ambedkar's speeches?"
-- "How does Ambedkar connect education with liberation?"
-- "What is Ambedkar's view on religious texts?"
+**Duration:** 60-90 minutes (tests 3 strategies × 25 questions)
 
-### Exit the Program
+### Generate Report
 
-Type `quit`, `exit`, or press `Ctrl+C`
+```bash
+python results_analysis.py
+```
 
+**Output:** `RESULTS_ANALYSIS.md` with detailed analysis
 
+---
 
-## 🔧 Configuration
+## 📊 Evaluation Results
 
-Modify these constants in `main.py`:
+### Performance Summary
 
-CORPUS_DIR = "./corpus" # Document corpus location
-CHUNK_SIZE = 300 # Chunk size in characters
-CHUNK_OVERLAP = 50 # Overlap between chunks
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-LLM_MODEL = "mistral"
+| Strategy | Chunks | Hit Rate | MRR | ROUGE-L | Cosine Sim |
+|----------|--------|----------|-----|---------|------------|
+| **Small** | 26 | 1.000 | 0.903 | 0.330 | 0.579 |
+| **Medium** | 13 | 1.000 | 0.907 | 0.348 | 0.577 |
+| **Large** | 7 | 1.000 | 0.913 | 0.317 | 0.587 |
 
-text
+### Key Findings
 
-## 🎯 Advanced Features
+✅ **Perfect Hit Rate (1.000)** - All strategies retrieved relevant documents  
+✅ **High MRR (0.90+)** - Excellent ranking quality  
+✅ **100% Success Rate** - All questions answered without errors  
+✅ **Optimal Strategy: SMALL** - Best balance across metrics  
 
-### 1. Source Attribution
-Every answer shows which documents contributed:
-📚 Retrieved from: speech1.txt, speech3.txt
-(4 relevant chunks)
+---
 
+## 📁 Project Structure
 
-### 2. Chunk Distribution Analytics
-See how documents are split:
-Chunk distribution:
+```
+AmbedkarGPT/
+├── README.md                    # This comprehensive guide
+├── .gitignore                   # Git exclusions
+├── requirements.txt             # Dependencies
+│
+├── main.py                      # Phase 1: Q&A system
+├── evaluation.py                # Phase 2: Evaluation framework
+├── results_analysis.py          # Analysis & reporting
+│
+├── corpus/                      # 6 speech documents
+│   ├── speech1.txt
+│   ├── speech2.txt
+│   ├── speech3.txt
+│   ├── speech4.txt
+│   ├── speech5.txt
+│   └── speech6.txt
+│
+├── test_dataset.json           # 25 test questions
+├── test_results.json           # Evaluation results
+└── RESULTS_ANALYSIS.md         # Analysis report
+```
 
-speech1.txt: 6 chunks
+---
 
-speech2.txt: 4 chunks
+## 🔬 Technical Deep Dive
 
-speech3.txt: 4 chunks
+### Technology Stack
 
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| Language | Python 3.8+ | Core implementation |
+| RAG Framework | LangChain | Pipeline orchestration |
+| Vector Store | ChromaDB | Embedding storage |
+| LLM | Ollama (Mistral 7B) | Answer generation |
+| Embeddings | sentence-transformers | Vectorization |
+| Evaluation | RAGAS, ROUGE, NLTK | Metrics |
 
-### 3. Multi-Document Synthesis
-Combines information from multiple speeches for comprehensive answers
+### Chunking Strategies
 
-### 4. Metadata Tracking
-Each chunk maintains source document information
+| Strategy | Size | Overlap | Chunks | Use Case |
+|----------|------|---------|--------|----------|
+| Small | 250 | 50 | 25-35 | Fine-grained |
+| Medium | 550 | 75 | 15-25 | Balanced |
+| Large | 900 | 100 | 10-20 | Context-heavy |
 
-## 🧪 Testing
+### Evaluation Metrics
 
-### Automated Test Dataset
-Use `test_dataset.json` for systematic testing:
-- 10 test questions
-- Ground truth answers
-- Source document references
-- Answerable/unanswerable classification
+**Retrieval:**
+- Hit Rate: Did we find relevant docs?
+- MRR: How well are they ranked?
+- Precision@K: What % of top-K are relevant?
 
-### Manual Testing
-Test single-document retrieval
-"What is the real remedy for caste system?"
+**Answer Quality:**
+- Answer Relevance: Question-answer alignment
+- Faithfulness: Grounded in context?
+- ROUGE-L: Overlap with ground truth
 
-Test multi-document synthesis
-"What are common themes in Ambedkar's speeches?"
+**Semantic:**
+- Cosine Similarity: Vector similarity
+- BLEU Score: N-gram overlap
 
-Test unanswerable question
-"What was Ambedkar's favorite food?"
+---
 
 ## ⚠️ Troubleshooting
 
-**Issue**: No documents found
-- **Solution**: Ensure `corpus/` folder exists with all 6 .txt files
+### Ollama Connection
+```
+Error: Could not connect to Ollama
+```
+**Fix:**
+```bash
+ollama serve  # Start server
+ollama list   # Verify
+```
 
-**Issue**: Slow response time
-- **Solution**: First run downloads models (~100MB); subsequent runs are faster
+### ChromaDB Warnings
+```
+Failed to send telemetry event...
+```
+**Fix:** Harmless warnings. To suppress:
+```python
+import os
+os.environ["ANONYMIZED_TELEMETRY"] = "False"
+```
 
-**Issue**: Ollama connection error
-- **Solution**: Start Ollama service: `ollama serve`
+### Out of Memory
+**Fix:**
+- Close other apps
+- Use smaller chunk size
+- Reduce retrieval K value
 
-## 📊 Performance Metrics
+### Slow Evaluation
+**Fix:**
+```python
+# In evaluation.py, line 158:
+self.test_dataset = self.test_dataset[:5]  # Test 5 questions
+```
 
-- **Documents**: 6 speeches
-- **Total Characters**: 4,890+
-- **Total Chunks**: 26
-- **Retrieval**: Top-4 most relevant chunks
-- **Response Time**: ~3-5 seconds per query
-- **Accuracy**: High (tested with ground truth dataset)
+### NLTK Missing
+```
+LookupError: Resource punkt not found
+```
+**Fix:**
+```python
+import nltk
+nltk.download('punkt')
+```
 
-## ✅ Assignment Requirements Checklist
+---
 
-- ✅ Python 3.8+ used
-- ✅ LangChain framework implemented
-- ✅ ChromaDB vector store configured
-- ✅ HuggingFace embeddings (all-MiniLM-L6-v2)
-- ✅ Ollama with Mistral 7B
-- ✅ Well-commented code
-- ✅ requirements.txt included
-- ✅ Detailed README.md
-- ✅ **BONUS**: Multi-document corpus support
-- ✅ **BONUS**: Source attribution
-- ✅ **BONUS**: Test dataset included
+## 🚀 Performance Optimization
 
-## 🎓 Learning Outcomes
+### Faster Evaluation
+- Reduce test set: `[:10]` instead of all 25
+- Enable GPU: `device='cuda'`
+- Parallel processing
 
-This project demonstrates mastery of:
-- Multi-document RAG pipeline architecture
-- Vector embeddings and similarity search across corpora
-- Local LLM deployment and integration
-- LangChain advanced features (metadata, retrieval)
-- Document processing and intelligent chunking
-- Source attribution and answer provenance
-- Scalable system design
+### Better Accuracy
+- Increase K: `search_kwargs={"k": 6}`
+- Lower temperature: `temperature=0.1`
+- Fine-tune chunk sizes
 
-## 👤 Author
+---
 
-Santhosh D
-santhosharun31@gmail.com
-https://github.com/santhosharun18
+## 📈 Future Enhancements
+
+- [ ] Web UI (Streamlit/Gradio)
+- [ ] REST API (FastAPI)
+- [ ] Multi-language support
+- [ ] Docker deployment
+- [ ] Response caching
+- [ ] Fine-tuned models
+
+---
 
 ## 📄 License
 
-MIT License
+MIT License - Copyright (c) 2025 Santhos Arun
+
+---
 
 ## 🙏 Acknowledgments
 
-- Assignment provided by Kalpit Pvt Ltd, UK
-- Texts from Dr. B.R. Ambedkar's speeches
-- LangChain, ChromaDB, and Ollama communities
+- **Kalpit Pvt Ltd, UK** - Assignment provider
+- **Dr. B.R. Ambedkar** - Speech content
+- **LangChain, ChromaDB, Ollama** - Technology stack
+- **HuggingFace, RAGAS** - Embeddings & evaluation
+
+---
+
+## 👤 Author
+
+**Santhos Arun**
+
+- GitHub: [@santhosharun18](https://github.com/santhosharun18)
+- Email: santhosharun.official@gmail.com
+- LinkedIn: [Santhos Arun](https://linkedin.com/in/santhosharun)
+- Portfolio: [santhosharun.com](https://santhosharun.com)
+
+---
+
+## 📊 Project Status
+
+| Component | Status |
+|-----------|--------|
+| Phase 1: RAG System | ✅ Complete |
+| Phase 2: Evaluation | ✅ Complete |
+| Documentation | ✅ Complete |
+| Testing | ✅ 100% Success |
+
+---
+
+<div align="center">
+
+**⭐ Star this repository if you found it helpful!**
+
+**Built with ❤️ by Santhos Arun | November 2025**
+
+</div>
